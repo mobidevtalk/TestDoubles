@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E836CBC82AE4C4F7008862FD /* UnitTestFundamental.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E836CBBF2AE4C4F7008862FD /* UnitTestFundamental.framework */; };
-		E836CBCD2AE4C4F7008862FD /* UnitTestFundamentalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836CBCC2AE4C4F7008862FD /* UnitTestFundamentalTests.swift */; };
-		E836CBCE2AE4C4F7008862FD /* UnitTestFundamental.h in Headers */ = {isa = PBXBuildFile; fileRef = E836CBC22AE4C4F7008862FD /* UnitTestFundamental.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,9 +22,7 @@
 
 /* Begin PBXFileReference section */
 		E836CBBF2AE4C4F7008862FD /* UnitTestFundamental.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UnitTestFundamental.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E836CBC22AE4C4F7008862FD /* UnitTestFundamental.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitTestFundamental.h; sourceTree = "<group>"; };
 		E836CBC72AE4C4F7008862FD /* UnitTestFundamentalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestFundamentalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E836CBCC2AE4C4F7008862FD /* UnitTestFundamentalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestFundamentalTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +65,6 @@
 		E836CBC12AE4C4F7008862FD /* UnitTestFundamental */ = {
 			isa = PBXGroup;
 			children = (
-				E836CBC22AE4C4F7008862FD /* UnitTestFundamental.h */,
 			);
 			path = UnitTestFundamental;
 			sourceTree = "<group>";
@@ -77,7 +72,6 @@
 		E836CBCB2AE4C4F7008862FD /* UnitTestFundamentalTests */ = {
 			isa = PBXGroup;
 			children = (
-				E836CBCC2AE4C4F7008862FD /* UnitTestFundamentalTests.swift */,
 			);
 			path = UnitTestFundamentalTests;
 			sourceTree = "<group>";
@@ -89,7 +83,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E836CBCE2AE4C4F7008862FD /* UnitTestFundamental.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,7 +191,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E836CBCD2AE4C4F7008862FD /* UnitTestFundamentalTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
