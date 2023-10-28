@@ -9,14 +9,16 @@ import XCTest
 import UnitTestFundamental
 
 protocol PUTAPI {
-    func put(preference: Preference, completion: @escaping (Result<URLResponse, Error>)-> Void)
+    func put(preference: Preference, completion: @escaping (Result<HTTPURLResponse, Error>)-> Void)
 }
 
 struct PreferenceInteractor {
     let api: PUTAPI
     
-    func executePUTRequest(for url: URL, with preference: Preference, completion: @escaping (Result<URLResponse, Error>)-> Void){
-        api.put(preference: preference){_ in completion(.failure(NSError(domain: "any-error-domain", code: 0)))}
+    func executePUTRequest(for url: URL, with preference: Preference, completion: @escaping (Result<HTTPURLResponse, Error>)-> Void){
+        api.put(preference: preference){result in
+            completion(result)
+        }
     }
 }
 
@@ -51,6 +53,22 @@ final class InteractorTests: XCTestCase {
         mockAPI.complete(with: anyError)
     }
     
+    func test_put_deliversSuccessOnAPISuccess() {
+        let successResponse = HTTPURLResponse(url: URL(string: "any-url")!, statusCode: 200, httpVersion: nil, headerFields: nil)!
+        let (sut, mockAPI) = makeSUT()
+        
+        sut.executePUTRequest(for: URL(string: "any-url")!, with: .never){result in
+            if case .success(let success) = result {
+                XCTAssertEqual(success.statusCode, successResponse.statusCode)
+                XCTAssertEqual(success.url, successResponse.url)
+            } else {
+                XCTFail("Expected success, instead got \(result)")
+            }
+        }
+        
+        mockAPI.complete(with: successResponse)
+    }
+    
     // MARK: - Helper
     private func makeSUT() -> (sut: PreferenceInteractor, mockAPI: MockPUTAPI){
         let mockAPI = MockPUTAPI()
@@ -62,14 +80,18 @@ final class InteractorTests: XCTestCase {
 
 class MockPUTAPI: PUTAPI {
     private(set) var isCalled = false
-    private(set) var completion:((Result<URLResponse, Error>)-> Void)?
+    private(set) var completion:((Result<HTTPURLResponse, Error>)-> Void)?
     
-    func put(preference: Preference, completion: @escaping (Result<URLResponse, Error>)-> Void) {
+    func put(preference: Preference, completion: @escaping (Result<HTTPURLResponse, Error>)-> Void) {
         isCalled = true
         self.completion = completion
     }
     
     func complete(with error: Error){
         completion?(.failure(error))
+    }
+    
+    func complete(with success: HTTPURLResponse){
+        completion?(.success(success))
     }
 }
