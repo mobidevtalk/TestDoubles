@@ -23,20 +23,24 @@ struct PreferenceInteractor {
 
 final class InteractorTests: XCTestCase {
     func test_init_doesNotInitiateRemoteCall() {
-        let putAPI = MockPUTAPI()
+        let (_, mockAPI) = makeSUT()
         
-        let _ = PreferenceInteractor(api: putAPI)
-        
-        XCTAssertFalse(putAPI.isCalled)
+        XCTAssertFalse(mockAPI.isCalled)
     }
     
-    func test_load_initiateRemoteCall() {
-        let putAPI = MockPUTAPI()
-        let sut = PreferenceInteractor(api: putAPI)
+    func test_put_initiateRemoteCall() {
+        let (sut, mockAPI) = makeSUT()
         
         sut.executePUTRequest(for: URL(string: "any-url")!, with: .never)
         
-        XCTAssertTrue(putAPI.isCalled)
+        XCTAssertTrue(mockAPI.isCalled)
+    }
+    
+    // MARK: - Helper
+    private func makeSUT() -> (sut: PreferenceInteractor, mockAPI: MockPUTAPI){
+        let mockAPI = MockPUTAPI()
+        let sut = PreferenceInteractor(api: mockAPI)
+        return (sut, mockAPI)
     }
 }
 
