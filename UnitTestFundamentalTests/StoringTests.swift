@@ -1,5 +1,5 @@
 //
-//  TestDoubles.swift
+//  StoringTests.swift
 //  UnitTestFundamentalTests
 //
 //  Created by Shad Mazumder on 22/10/23.
@@ -8,7 +8,7 @@
 import XCTest
 import UnitTestFundamental
 
-class TestDoublesTests: XCTestCase {
+class StoringTests: XCTestCase {
     func test_init_doesnotStorePreference() {
         let (_, spy) = makeSUT()
         

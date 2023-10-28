@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E836CBC82AE4C4F7008862FD /* UnitTestFundamental.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E836CBBF2AE4C4F7008862FD /* UnitTestFundamental.framework */; };
-		E836CBD82AE4C55E008862FD /* TestDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836CBD72AE4C55E008862FD /* TestDoubles.swift */; };
+		E836CBD82AE4C55E008862FD /* StoringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E836CBD72AE4C55E008862FD /* StoringTests.swift */; };
 		E8A5E4C82AECA9A100B0B2C3 /* Credential.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4C72AECA9A100B0B2C3 /* Credential.swift */; };
 		E8A5E4CA2AECA9E900B0B2C3 /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4C92AECA9E900B0B2C3 /* Preference.swift */; };
 		E8A5E4CC2AECAA2500B0B2C3 /* PreferenceStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4CB2AECAA2500B0B2C3 /* PreferenceStorable.swift */; };
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		E836CBBF2AE4C4F7008862FD /* UnitTestFundamental.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UnitTestFundamental.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E836CBC72AE4C4F7008862FD /* UnitTestFundamentalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTestFundamentalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E836CBD72AE4C55E008862FD /* TestDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDoubles.swift; sourceTree = "<group>"; };
+		E836CBD72AE4C55E008862FD /* StoringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoringTests.swift; sourceTree = "<group>"; };
 		E8A5E4C72AECA9A100B0B2C3 /* Credential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credential.swift; sourceTree = "<group>"; };
 		E8A5E4C92AECA9E900B0B2C3 /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preference.swift; sourceTree = "<group>"; };
 		E8A5E4CB2AECAA2500B0B2C3 /* PreferenceStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceStorable.swift; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 		E836CBCB2AE4C4F7008862FD /* UnitTestFundamentalTests */ = {
 			isa = PBXGroup;
 			children = (
-				E836CBD72AE4C55E008862FD /* TestDoubles.swift */,
+				E836CBD72AE4C55E008862FD /* StoringTests.swift */,
 			);
 			path = UnitTestFundamentalTests;
 			sourceTree = "<group>";
@@ -212,7 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E836CBD82AE4C55E008862FD /* TestDoubles.swift in Sources */,
+				E836CBD82AE4C55E008862FD /* StoringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
