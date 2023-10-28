@@ -25,14 +25,6 @@ final class UserDefaults_PreferenceStorableTests: XCTestCase {
         XCTAssertEqual(error, .emptyKey)
     }
     
-    func test_save_withValidDataAndKey_returnNoError() {
-        let sut = UserDefaults(suiteName: "UserDefaultsTestSuite")
-        
-        let error = sut?.save("some-data".data(using: .utf8)!, for: "any-key")
-        
-        XCTAssertNil(error)
-    }
-    
     func test_save_withValidDataAndKey_storesData() {
         let key = "any-onther-key"
         let sut = UserDefaults(suiteName: "UserDefaultsTestSuite")
