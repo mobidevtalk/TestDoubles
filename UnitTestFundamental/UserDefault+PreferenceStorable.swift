@@ -20,8 +20,8 @@ extension UserDefaults: PreferenceStorable{
         case (_, true):
             return UserDefaultsError.emptyKey
         default:
+            setValue(data, forKey: key)
             return nil
         }
-        
     }
 }
