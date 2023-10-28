@@ -14,10 +14,13 @@ public struct StorageController {
         self.presistenceStore = presistenceStore
     }
     
-    public func save(preference: Preference){
+    public func save(preference: Preference) throws{
         let encoder = JSONEncoder()
         guard let data = try? encoder.encode(preference) else { return }
-        _ = presistenceStore.save(data, for: Self.PreferenceStoreKey)
+        
+        if let error = presistenceStore.save(data, for: Self.PreferenceStoreKey) {
+            throw error
+        }
     }
 }
 

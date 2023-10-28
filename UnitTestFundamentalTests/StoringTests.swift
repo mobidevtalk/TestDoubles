@@ -19,7 +19,7 @@ class StoringTests: XCTestCase {
         let (sut, spy) = makeSUT()
         XCTAssertTrue(spy.preferences.isEmpty)
         
-        sut.save(preference: .never)
+        try? sut.save(preference: .never)
         
         XCTAssertFalse(spy.preferences.isEmpty)
     }
