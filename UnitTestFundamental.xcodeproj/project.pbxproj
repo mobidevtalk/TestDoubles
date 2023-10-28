@@ -15,6 +15,9 @@
 		E8A5E4CE2AECAA3E00B0B2C3 /* StorageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4CD2AECAA3E00B0B2C3 /* StorageController.swift */; };
 		E8A5E4D02AECAC1400B0B2C3 /* ResponseAfterStoringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4CF2AECAC1400B0B2C3 /* ResponseAfterStoringTests.swift */; };
 		E8A5E4D22AECB52500B0B2C3 /* EncodingFailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4D12AECB52500B0B2C3 /* EncodingFailTests.swift */; };
+		E8A5E4D62AECD79300B0B2C3 /* UserDefaults+PreferenceStorableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4D52AECD79300B0B2C3 /* UserDefaults+PreferenceStorableTests.swift */; };
+		E8A5E4D82AECD81200B0B2C3 /* UserDefault+PreferenceStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4D72AECD81200B0B2C3 /* UserDefault+PreferenceStorable.swift */; };
+		E8A5E4DA2AECE7C700B0B2C3 /* UserDefaults+syncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4D92AECE7C700B0B2C3 /* UserDefaults+syncTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,9 @@
 		E8A5E4CD2AECAA3E00B0B2C3 /* StorageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageController.swift; sourceTree = "<group>"; };
 		E8A5E4CF2AECAC1400B0B2C3 /* ResponseAfterStoringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseAfterStoringTests.swift; sourceTree = "<group>"; };
 		E8A5E4D12AECB52500B0B2C3 /* EncodingFailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodingFailTests.swift; sourceTree = "<group>"; };
+		E8A5E4D52AECD79300B0B2C3 /* UserDefaults+PreferenceStorableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PreferenceStorableTests.swift"; sourceTree = "<group>"; };
+		E8A5E4D72AECD81200B0B2C3 /* UserDefault+PreferenceStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+PreferenceStorable.swift"; sourceTree = "<group>"; };
+		E8A5E4D92AECE7C700B0B2C3 /* UserDefaults+syncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+syncTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,7 @@
 				E8A5E4C72AECA9A100B0B2C3 /* Credential.swift */,
 				E8A5E4C92AECA9E900B0B2C3 /* Preference.swift */,
 				E8A5E4CB2AECAA2500B0B2C3 /* PreferenceStorable.swift */,
+				E8A5E4D72AECD81200B0B2C3 /* UserDefault+PreferenceStorable.swift */,
 				E8A5E4CD2AECAA3E00B0B2C3 /* StorageController.swift */,
 			);
 			path = UnitTestFundamental;
@@ -90,11 +97,29 @@
 		E836CBCB2AE4C4F7008862FD /* UnitTestFundamentalTests */ = {
 			isa = PBXGroup;
 			children = (
+				E8A5E4D42AECD71F00B0B2C3 /* UserDefaultTests */,
+				E8A5E4D32AECD6C900B0B2C3 /* StorageControllerTests */,
+			);
+			path = UnitTestFundamentalTests;
+			sourceTree = "<group>";
+		};
+		E8A5E4D32AECD6C900B0B2C3 /* StorageControllerTests */ = {
+			isa = PBXGroup;
+			children = (
 				E836CBD72AE4C55E008862FD /* StoringTests.swift */,
 				E8A5E4CF2AECAC1400B0B2C3 /* ResponseAfterStoringTests.swift */,
 				E8A5E4D12AECB52500B0B2C3 /* EncodingFailTests.swift */,
 			);
-			path = UnitTestFundamentalTests;
+			path = StorageControllerTests;
+			sourceTree = "<group>";
+		};
+		E8A5E4D42AECD71F00B0B2C3 /* UserDefaultTests */ = {
+			isa = PBXGroup;
+			children = (
+				E8A5E4D52AECD79300B0B2C3 /* UserDefaults+PreferenceStorableTests.swift */,
+				E8A5E4D92AECE7C700B0B2C3 /* UserDefaults+syncTests.swift */,
+			);
+			path = UserDefaultTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +234,7 @@
 			files = (
 				E8A5E4CA2AECA9E900B0B2C3 /* Preference.swift in Sources */,
 				E8A5E4C82AECA9A100B0B2C3 /* Credential.swift in Sources */,
+				E8A5E4D82AECD81200B0B2C3 /* UserDefault+PreferenceStorable.swift in Sources */,
 				E8A5E4CC2AECAA2500B0B2C3 /* PreferenceStorable.swift in Sources */,
 				E8A5E4CE2AECAA3E00B0B2C3 /* StorageController.swift in Sources */,
 			);
@@ -219,7 +245,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8A5E4D22AECB52500B0B2C3 /* EncodingFailTests.swift in Sources */,
+				E8A5E4D62AECD79300B0B2C3 /* UserDefaults+PreferenceStorableTests.swift in Sources */,
 				E8A5E4D02AECAC1400B0B2C3 /* ResponseAfterStoringTests.swift in Sources */,
+				E8A5E4DA2AECE7C700B0B2C3 /* UserDefaults+syncTests.swift in Sources */,
 				E836CBD82AE4C55E008862FD /* StoringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
