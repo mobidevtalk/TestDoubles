@@ -26,8 +26,8 @@ final class UserDefaults_PreferenceStorableTests: XCTestCase {
     }
     
     func test_save_withValidDataAndKey_storesData() {
-        let key = "any-onther-key"
-        let sut = makeSUT(key)
+        let key = "any-other-key"
+        let sut = makeSUT()
         
         let error = sut.save("some-data".data(using: .utf8)!, for: key)
         
@@ -37,7 +37,7 @@ final class UserDefaults_PreferenceStorableTests: XCTestCase {
     }
     
     // MARK: - Helper
-    private func makeSUT(_ key: String = "UserDefaultsTestSuite") -> UserDefaults{
-        UserDefaults(suiteName: key)!
+    private func makeSUT() -> UserDefaults{
+        UserDefaults(suiteName: "UserDefaultsTestSuite")!
     }
 }
