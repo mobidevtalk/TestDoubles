@@ -14,6 +14,10 @@ protocol PUTAPI {
 
 struct PreferenceInteractor {
     let api: PUTAPI
+    
+    func executePUTRequest(for url: URL, with preference: Preference){
+        api.put(preference: preference)
+    }
 }
 
 
@@ -24,6 +28,15 @@ final class InteractorTests: XCTestCase {
         let _ = PreferenceInteractor(api: putAPI)
         
         XCTAssertFalse(putAPI.isCalled)
+    }
+    
+    func test_load_initiateRemoteCall() {
+        let putAPI = MockPUTAPI()
+        let sut = PreferenceInteractor(api: putAPI)
+        
+        sut.executePUTRequest(for: URL(string: "any-url")!, with: .never)
+        
+        XCTAssertTrue(putAPI.isCalled)
     }
 }
 
