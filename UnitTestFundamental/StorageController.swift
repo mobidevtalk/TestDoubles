@@ -20,9 +20,7 @@ public struct StorageController {
         let data: Data
         do{
             data = try encoder.encode(preference)
-        }catch{
-            throw error
-        }
+        }catch{ throw error }
         
         if let error = presistenceStore.save(data, for: Self.PreferenceStoreKey) {
             throw error

@@ -90,11 +90,19 @@
 		E836CBCB2AE4C4F7008862FD /* UnitTestFundamentalTests */ = {
 			isa = PBXGroup;
 			children = (
+				E8A5E4D32AECD6C900B0B2C3 /* StorageControllerTests */,
+			);
+			path = UnitTestFundamentalTests;
+			sourceTree = "<group>";
+		};
+		E8A5E4D32AECD6C900B0B2C3 /* StorageControllerTests */ = {
+			isa = PBXGroup;
+			children = (
 				E836CBD72AE4C55E008862FD /* StoringTests.swift */,
 				E8A5E4CF2AECAC1400B0B2C3 /* ResponseAfterStoringTests.swift */,
 				E8A5E4D12AECB52500B0B2C3 /* EncodingFailTests.swift */,
 			);
-			path = UnitTestFundamentalTests;
+			path = StorageControllerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
