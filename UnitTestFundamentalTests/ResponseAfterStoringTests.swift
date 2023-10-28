@@ -6,6 +6,13 @@
 //
 
 import XCTest
+import UnitTestFundamental
 
 final class ResponseAfterStoringTests: XCTestCase {
+}
+
+struct StubPreferenceStorage: PreferenceStorable {
+    let error: Error?
+    
+    func save(_ data: Data, for key: String) -> Error? { error }
 }
