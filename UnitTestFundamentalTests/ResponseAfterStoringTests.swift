@@ -35,7 +35,7 @@ final class ResponseAfterStoringTests: XCTestCase {
     // MARK: - Helper
     private func makeSUT(with error: Error?) -> (sut: StorageController, stub: StubPreferenceStorage){
         let stub = StubPreferenceStorage(error: error)
-        let sut = StorageController(presistenceStore: stub)
+        let sut = StorageController(presistenceStore: stub, encoder: JSONEncoder())
         return (sut, stub)
     }
 }

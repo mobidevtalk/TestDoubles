@@ -27,7 +27,7 @@ class StoringTests: XCTestCase {
     // MARK: - Helper
     private func makeSUT() -> (sut: StorageController, spy: SpyPreferenceStorage) {
         let spy = SpyPreferenceStorage()
-        let sut = StorageController(presistenceStore: spy)
+        let sut = StorageController(presistenceStore: spy, encoder: JSONEncoder())
         return (sut, spy)
     }
 }
