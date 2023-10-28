@@ -17,6 +17,7 @@
 		E8A5E4D22AECB52500B0B2C3 /* EncodingFailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4D12AECB52500B0B2C3 /* EncodingFailTests.swift */; };
 		E8A5E4D62AECD79300B0B2C3 /* UserDefaults+PreferenceStorableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4D52AECD79300B0B2C3 /* UserDefaults+PreferenceStorableTests.swift */; };
 		E8A5E4D82AECD81200B0B2C3 /* UserDefault+PreferenceStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4D72AECD81200B0B2C3 /* UserDefault+PreferenceStorable.swift */; };
+		E8A5E4DA2AECE7C700B0B2C3 /* UserDefaults+syncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5E4D92AECE7C700B0B2C3 /* UserDefaults+syncTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		E8A5E4D12AECB52500B0B2C3 /* EncodingFailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodingFailTests.swift; sourceTree = "<group>"; };
 		E8A5E4D52AECD79300B0B2C3 /* UserDefaults+PreferenceStorableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+PreferenceStorableTests.swift"; sourceTree = "<group>"; };
 		E8A5E4D72AECD81200B0B2C3 /* UserDefault+PreferenceStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefault+PreferenceStorable.swift"; sourceTree = "<group>"; };
+		E8A5E4D92AECE7C700B0B2C3 /* UserDefaults+syncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+syncTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				E8A5E4D52AECD79300B0B2C3 /* UserDefaults+PreferenceStorableTests.swift */,
+				E8A5E4D92AECE7C700B0B2C3 /* UserDefaults+syncTests.swift */,
 			);
 			path = UserDefaultTests;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				E8A5E4D22AECB52500B0B2C3 /* EncodingFailTests.swift in Sources */,
 				E8A5E4D62AECD79300B0B2C3 /* UserDefaults+PreferenceStorableTests.swift in Sources */,
 				E8A5E4D02AECAC1400B0B2C3 /* ResponseAfterStoringTests.swift in Sources */,
+				E8A5E4DA2AECE7C700B0B2C3 /* UserDefaults+syncTests.swift in Sources */,
 				E836CBD82AE4C55E008862FD /* StoringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

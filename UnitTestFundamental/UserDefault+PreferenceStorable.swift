@@ -10,6 +10,7 @@ import Foundation
 public enum UserDefaultsError: Error {
     case emptyData
     case emptyKey
+    case saveFailed
 }
 
 extension UserDefaults: PreferenceStorable{
@@ -21,7 +22,7 @@ extension UserDefaults: PreferenceStorable{
             return UserDefaultsError.emptyKey
         default:
             setValue(data, forKey: key)
-            return nil
+            return synchronize() ? nil : UserDefaultsError.saveFailed
         }
     }
 }
