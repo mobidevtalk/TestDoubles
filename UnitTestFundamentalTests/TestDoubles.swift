@@ -6,39 +6,7 @@
 //
 
 import XCTest
-
-struct Credential {
-    let username: String
-    let password: String
-}
-
-extension Credential: Encodable{}
-
-enum Preference {
-    case notNow
-    case never
-    case save(Credential)
-}
-
-extension Preference: Encodable{}
-
-protocol PreferenceStorable{
-    func save(_ data: Data, for key: String) -> Error?
-}
-
-struct StorageController {
-    let presistenceStore: PreferenceStorable
-    
-    func save(preference: Preference){
-        let encoder = JSONEncoder()
-        guard let data = try? encoder.encode(preference) else { return }
-        _ = presistenceStore.save(data, for: Self.PreferenceStoreKey)
-    }
-}
-
-extension StorageController{
-    static var PreferenceStoreKey: String {"PreferenceStoreKey"}
-}
+import UnitTestFundamental
 
 class TestDoublesTests: XCTestCase {
     func test_init_doesnotStorePreference() {
