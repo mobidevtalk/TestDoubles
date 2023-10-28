@@ -48,7 +48,7 @@ final class InteractorTests: XCTestCase {
             }
         }
         
-        XCTAssertTrue(mockAPI.isCalled)
+        mockAPI.complete(with: anyError)
     }
     
     // MARK: - Helper
