@@ -54,19 +54,19 @@ final class InteractorTests: XCTestCase {
     }
     
     func test_put_deliversSuccessOnAPISuccess() {
-        let successResponse = HTTPURLResponse(url: URL(string: "any-url")!, statusCode: 200, httpVersion: nil, headerFields: nil)!
+        let expectedResponse = HTTPURLResponse(url: URL(string: "any-url")!, statusCode: 200, httpVersion: nil, headerFields: nil)!
         let (sut, mockAPI) = makeSUT()
         
         sut.executePUTRequest(for: URL(string: "any-url")!, with: .never){result in
-            if case .success(let success) = result {
-                XCTAssertEqual(success.statusCode, successResponse.statusCode)
-                XCTAssertEqual(success.url, successResponse.url)
+            if case .success(let returnedResponse) = result {
+                XCTAssertEqual(returnedResponse.statusCode, expectedResponse.statusCode)
+                XCTAssertEqual(returnedResponse.url, expectedResponse.url)
             } else {
                 XCTFail("Expected success, instead got \(result)")
             }
         }
         
-        mockAPI.complete(with: successResponse)
+        mockAPI.complete(with: expectedResponse)
     }
     
     // MARK: - Helper
