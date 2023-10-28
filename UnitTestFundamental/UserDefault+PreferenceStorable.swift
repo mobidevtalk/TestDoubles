@@ -9,10 +9,19 @@ import Foundation
 
 public enum UserDefaultsError: Error {
     case emptyData
+    case emptyKey
 }
 
 extension UserDefaults: PreferenceStorable{
     public func save(_ data: Data, for key: String) -> Error? {
-        UserDefaultsError.emptyData
+        switch (data.isEmpty, key.isEmpty) {
+        case (true, _):
+            return UserDefaultsError.emptyData
+        case (_, true):
+            return UserDefaultsError.emptyKey
+        default:
+            return nil
+        }
+        
     }
 }
