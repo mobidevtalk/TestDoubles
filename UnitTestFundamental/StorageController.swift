@@ -9,13 +9,14 @@ import Foundation
 
 public struct StorageController {
     private let presistenceStore: PreferenceStorable
+    private let encoder: JSONEncoder
     
-    public init(presistenceStore: PreferenceStorable) {
+    public init(presistenceStore: PreferenceStorable, encoder: JSONEncoder) {
         self.presistenceStore = presistenceStore
+        self.encoder = encoder
     }
     
     public func save(preference: Preference) throws{
-        let encoder = JSONEncoder()
         guard let data = try? encoder.encode(preference) else { return }
         
         if let error = presistenceStore.save(data, for: Self.PreferenceStoreKey) {
