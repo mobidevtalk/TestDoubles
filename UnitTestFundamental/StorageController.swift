@@ -17,7 +17,12 @@ public struct StorageController {
     }
     
     public func save(preference: Preference) throws{
-        guard let data = try? encoder.encode(preference) else { return }
+        let data: Data
+        do{
+            data = try encoder.encode(preference)
+        }catch{
+            throw error
+        }
         
         if let error = presistenceStore.save(data, for: Self.PreferenceStoreKey) {
             throw error
