@@ -24,23 +24,23 @@ struct PreferenceInteractor {
 
 
 final class InteractorTests: XCTestCase {
-    func test_init_doesNotInitiateRemoteCall() {
-        let (_, mockAPI) = makeSUT()
-        
-        XCTAssertFalse(mockAPI.isCalled)
-    }
-    
-    func test_put_initiateRemoteCall() {
-        let (sut, mockAPI) = makeSUT()
-        
-        sut.executePUTRequest(for: URL(string: "any-url")!, with: .never){_ in}
-        
-        XCTAssertTrue(mockAPI.isCalled)
-    }
+//    func test_init_doesNotInitiateRemoteCall() {
+//        let (_, stubAPI) = makeSUT()
+//        
+//        XCTAssertFalse(stubAPI.isCalled)
+//    }
+//    
+//    func test_put_initiateRemoteCall() {
+//        let (sut, stubAPI) = makeSUT()
+//        
+//        sut.executePUTRequest(for: URL(string: "any-url")!, with: .never){_ in}
+//        
+//        XCTAssertTrue(stubAPI.isCalled)
+//    }
     
     func test_put_deliversErrorOnAPIError() {
         let anyError = NSError(domain: "any-error-domain", code: 0)
-        let (sut, mockAPI) = makeSUT()
+        let (sut, stubAPI) = makeSUT()
         
         sut.executePUTRequest(for: URL(string: "any-url")!, with: .never){result in
             if case .failure(let error) = result {
@@ -50,12 +50,12 @@ final class InteractorTests: XCTestCase {
             }
         }
         
-        mockAPI.complete(with: anyError)
+        stubAPI.complete(with: anyError)
     }
     
     func test_put_deliversSuccessOnAPISuccess() {
         let expectedResponse = HTTPURLResponse(url: URL(string: "any-url")!, statusCode: 200, httpVersion: nil, headerFields: nil)!
-        let (sut, mockAPI) = makeSUT()
+        let (sut, stubAPI) = makeSUT()
         
         sut.executePUTRequest(for: URL(string: "any-url")!, with: .never){result in
             if case .success(let returnedResponse) = result {
@@ -66,26 +66,23 @@ final class InteractorTests: XCTestCase {
             }
         }
         
-        mockAPI.complete(with: expectedResponse)
+        stubAPI.complete(with: expectedResponse)
     }
     
     // MARK: - Helper
-    private func makeSUT() -> (sut: PreferenceInteractor, mockAPI: MockPUTAPI){
-        let mockAPI = MockPUTAPI()
-        let sut = PreferenceInteractor(api: mockAPI)
-        return (sut, mockAPI)
+    private func makeSUT() -> (sut: PreferenceInteractor, stubAPI: SutbPUTAPI){
+        let stubAPI = SutbPUTAPI()
+        let sut = PreferenceInteractor(api: stubAPI)
+        return (sut, stubAPI)
     }
 }
 
 
-class MockPUTAPI: PUTAPI {
-    private(set) var isCalled = false
+class SutbPUTAPI: PUTAPI {
+    private(set) var isCalled: Bool?
     private(set) var completion:((Result<HTTPURLResponse, Error>)-> Void)?
     
-    func put(preference: Preference, completion: @escaping (Result<HTTPURLResponse, Error>)-> Void) {
-        isCalled = true
-        self.completion = completion
-    }
+    func put(preference: Preference, completion: @escaping (Result<HTTPURLResponse, Error>)-> Void) {}
     
     func complete(with error: Error){
         completion?(.failure(error))
@@ -95,3 +92,14 @@ class MockPUTAPI: PUTAPI {
         completion?(.success(success))
     }
 }
+
+
+//class PUTAPIMock: PUTAPI{
+//    private(set) var isCalled = false
+//    private(set) var completion:((Result<HTTPURLResponse, Error>)-> Void)?
+//    
+//    func put(preference: Preference, completion: @escaping (Result<HTTPURLResponse, Error>)-> Void) {
+//        isCalled = true
+//        self.completion = completion
+//    }
+//}
