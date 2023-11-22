@@ -8,21 +8,6 @@
 import XCTest
 import UnitTestFundamental
 
-protocol PUTAPI {
-    func put(preference: Preference, completion: @escaping (Result<HTTPURLResponse, Error>)-> Void)
-}
-
-struct PreferenceInteractor {
-    let api: PUTAPI
-    
-    func executePUTRequest(for url: URL, with preference: Preference, completion: @escaping (Result<HTTPURLResponse, Error>)-> Void){
-        api.put(preference: preference){result in
-            completion(result)
-        }
-    }
-}
-
-
 final class InteractorTests: XCTestCase {
 //    func test_init_doesNotInitiateRemoteCall() {
 //        let (_, stubAPI) = makeSUT()
