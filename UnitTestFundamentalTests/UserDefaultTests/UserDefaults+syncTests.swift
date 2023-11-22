@@ -22,3 +22,24 @@ final class UserDefaults_syncTests: XCTestCase {
 class FakeUserDefaults: UserDefaults {
     override func synchronize() -> Bool { false }
 }
+
+// MARK: - Another UserDefaults Fake example
+
+protocol UserDefaultsStorage {
+    func set(_ value: Any?, forKey defaultName: String)
+    func value(forKey key: String) -> Any?
+}
+
+extension UserDefaults: UserDefaultsStorage{}
+
+class FakeStorage: UserDefaultsStorage{
+    var dictionary = [String: Any]()
+    
+    func set(_ value: Any?, forKey defaultName: String) {
+        dictionary[defaultName] = value
+    }
+    
+    func value(forKey key: String) -> Any? {
+        dictionary[key]
+    }
+}
