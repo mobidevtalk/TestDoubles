@@ -9,20 +9,6 @@ import XCTest
 import UnitTestFundamental
 
 final class InteractorTests: XCTestCase {
-//    func test_init_doesNotInitiateRemoteCall() {
-//        let (_, stubAPI) = makeSUT()
-//        
-//        XCTAssertFalse(stubAPI.isCalled)
-//    }
-//    
-//    func test_put_initiateRemoteCall() {
-//        let (sut, stubAPI) = makeSUT()
-//        
-//        sut.executePUTRequest(for: URL(string: "any-url")!, with: .never){_ in}
-//        
-//        XCTAssertTrue(stubAPI.isCalled)
-//    }
-    
     func test_put_deliversErrorOnAPIError() {
         let anyError = NSError(domain: "any-error-domain", code: 0)
         let (sut, stubAPI) = makeSUT()
@@ -77,14 +63,3 @@ class SutbPUTAPI: PUTAPI {
         completion?(.success(success))
     }
 }
-
-
-//class PUTAPIMock: PUTAPI{
-//    private(set) var isCalled = false
-//    private(set) var completion:((Result<HTTPURLResponse, Error>)-> Void)?
-//    
-//    func put(preference: Preference, completion: @escaping (Result<HTTPURLResponse, Error>)-> Void) {
-//        isCalled = true
-//        self.completion = completion
-//    }
-//}
