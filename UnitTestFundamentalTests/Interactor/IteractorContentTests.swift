@@ -10,19 +10,19 @@ import UnitTestFundamental
 
 final class IteractorContentTests: XCTestCase {
     func test_init_doesNotInitiateRemoteCall() {
-        let (_, stubAPI) = makeSUT()
+        let (_, mockAPI) = makeSUT()
         
-        XCTAssertFalse(stubAPI.verifyCall)
-        XCTAssertFalse(stubAPI.verifyCompletionSetup)
+        XCTAssertFalse(mockAPI.verifyCall)
+        XCTAssertFalse(mockAPI.verifyCompletionSetup)
     }
     
     func test_put_initiateRemoteCall() {
-        let (sut, stubAPI) = makeSUT()
+        let (sut, mockAPI) = makeSUT()
         
         sut.executePUTRequest(for: URL(string: "any-url")!, with: .never){_ in}
         
-        XCTAssertTrue(stubAPI.verifyCall)
-        XCTAssertTrue(stubAPI.verifyCompletionSetup)
+        XCTAssertTrue(mockAPI.verifyCall)
+        XCTAssertTrue(mockAPI.verifyCompletionSetup)
     }
     
     // MARK: - Helper
